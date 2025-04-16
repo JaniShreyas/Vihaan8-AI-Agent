@@ -277,7 +277,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "blinker" },
-    { name = "crewai" },
+    { name = "crewai", extra = ["tools"] },
     { name = "selenium" },
     { name = "selenium-wire" },
 ]
@@ -285,7 +285,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "blinker", specifier = "==1.7.0" },
-    { name = "crewai", specifier = ">=0.86.0" },
+    { name = "crewai", extras = ["tools"], specifier = ">=0.86.0" },
     { name = "selenium", specifier = ">=4.31.0" },
     { name = "selenium-wire", specifier = ">=5.1.0" },
 ]
@@ -621,6 +621,11 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/da/23/69b3a6f9b8282e2c576ea9aaa6696d9cae0ac6c4e756aad47d2e4d66018a/crewai-0.86.0.tar.gz", hash = "sha256:30c8a1f185ea47c552e3aa4b4ef128c0cd5ca5e93c4b1454830b517c7bde55ed", size = 7730878 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c8/04/3808fe66acabebc5b5dcf00e4f290ae67a817d18ad96b043dd9769f51da8/crewai-0.86.0-py3-none-any.whl", hash = "sha256:ef1ff4b3df85a72eda2d64ea6fcd7f53461271e13822ff4937d0fa41055ef025", size = 192034 },
+]
+
+[package.optional-dependencies]
+tools = [
+    { name = "crewai-tools" },
 ]
 
 [[package]]
