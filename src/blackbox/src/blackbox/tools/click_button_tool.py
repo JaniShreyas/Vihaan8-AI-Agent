@@ -5,6 +5,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 from crewai.tools import BaseTool
 from .driver import get_driver
+import src.blackbox.config.config as config
+import json
 
 class ClickButtonInput(BaseModel):
     """Input schema for ClickButtonTool (reuses existing driver)."""
@@ -46,8 +48,11 @@ class ClickButtonTool(BaseTool):
         try:
             element = driver.find_element(locator, value)
             element.click()
-            har_data_list.append(driver.har)
-            print(har_data_list)
+            
+            with open(config.HAR_DUMP_FILE_PATH, 'a') as f:
+                json.dump(driver.har, f)
+                f.write("\n")
+
             return f"Successfully clicked element by {by}='{value}' Current URL: {driver.current_url}."
         
         except Exception as e:
