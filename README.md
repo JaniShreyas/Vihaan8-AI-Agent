@@ -1,6 +1,6 @@
 # Black box testing AI Agent
 
-This is planned to be an AI Agent that can crawl through a given website's frontend and find all API endpoints being called in the background.
+This is planned to be an AI Agent that can crawl through a given website using its frontend and find all API endpoints being called in the background.
 These endpoints will be further stress tested
 
 ## Setup
