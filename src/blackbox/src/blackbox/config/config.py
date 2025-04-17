@@ -1,1 +1,1 @@
-URL = "localhost:8888"
+URL = "http://localhost:8888"

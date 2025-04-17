@@ -1,6 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from src.blackbox.tools.click_button_tool import ClickButtonTool
+from src.blackbox.tools import ClickButtonTool, GetPageTool
 
 # If you want to run a snippet of code before or after the crew starts, 
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -36,7 +36,7 @@ class Blackbox():
 	def web_crawler_agent(self) -> Agent:
 		return Agent(
 			config=self.agents_config['web_crawler_agent'],
-			tools=[ClickButtonTool()],
+			tools=[GetPageTool(), ClickButtonTool()],
 			verbose=True
 		)
 

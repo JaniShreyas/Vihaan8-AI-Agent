@@ -18,10 +18,11 @@ class GetPageTool(BaseTool):
     args_schema: Type[BaseModel] = GetPageInput
 
     def _run(self, url: str) -> str:
+        url_str = str(url)
         driver = get_driver()
         try:
-            driver.get(url)
+            driver.get(url_str)
             page_source = driver.page_source
             return page_source
         except Exception as e:
-            return f"Error retrieving {url}: {str(e)}"
+            return f"Error retrieving {url_str}: {str(e)}"

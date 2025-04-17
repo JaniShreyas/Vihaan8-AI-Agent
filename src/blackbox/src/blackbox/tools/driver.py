@@ -1,5 +1,6 @@
 from seleniumwire import webdriver
 from selenium.webdriver.firefox.options import Options
+import time
 
 # Module-level Selenium driver for reuse
 _driver = None
@@ -18,6 +19,7 @@ def init_driver(headless: bool = True) -> webdriver.Firefox:
         firefox_options.add_argument('--no-sandbox')
         _driver = webdriver.Firefox(options=firefox_options)
         _driver.get("localhost:8888")
+        time.sleep(3)
     return _driver
 
 def get_driver() -> webdriver.Firefox:
@@ -25,5 +27,6 @@ def get_driver() -> webdriver.Firefox:
     Retrieve the initialized driver. Raises if not yet initialized.
     """
     if _driver is None:
-        raise RuntimeError("Selenium driver not initialized. Call init_driver() first.")
+        init_driver()
+        
     return _driver
