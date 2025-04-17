@@ -42,6 +42,7 @@ class ClickButtonTool(BaseTool):
         try:
             element = driver.find_element(locator, value)
             element.click()
+            
             return f"Successfully clicked element by {by}='{value}' Current URL: {driver.current_url}."
         
         except Exception as e:

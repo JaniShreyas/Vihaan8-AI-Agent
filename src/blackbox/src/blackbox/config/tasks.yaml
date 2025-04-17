@@ -22,4 +22,7 @@ web_crawling_task:
     Make sure you choose the correct button to click using the click_button tool
   expected_output: >
     An explanation about what you understood in the page and why you chose to click that particular button
+    Remember which buttons you saw and make sure to click and record what was the output of each
+    If you reach a dead end, go back to the base URL {url} and try something else
+    Explain each choice in detail with a timeline/step of what you did and why
   agent: web_crawler_agent
