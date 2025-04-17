@@ -17,7 +17,13 @@ def init_driver(headless: bool = True) -> webdriver.Firefox:
             firefox_options.add_argument('--headless')
         firefox_options.add_argument('--disable-gpu')
         firefox_options.add_argument('--no-sandbox')
-        _driver = webdriver.Firefox(options=firefox_options)
+
+        seleniumwire_options = {
+            'enable_har': True,
+            'enable_har_cookies': True
+        }
+
+        _driver = webdriver.Firefox(options=firefox_options, seleniumwire_options=seleniumwire_options)
         _driver.get("localhost:8888")
         time.sleep(3)
     return _driver

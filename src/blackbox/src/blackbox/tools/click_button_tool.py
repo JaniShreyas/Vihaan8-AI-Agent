@@ -12,11 +12,15 @@ class ClickButtonInput(BaseModel):
         Field('id', description="Locator strategy to find the button.")
     value: str = Field(..., description="The locator value (e.g. the id or CSS selector).")
 
+har_data_list = []
+
 class ClickButtonTool(BaseTool):
     name: str = "click_button"
     description: str = (
         "Clicks a button on the currently open page in a persistent Selenium session. "
         "Initialize the session with init_driver() elsewhere in your agent startup."
+        "Wherever possible, try to use by = XPATH and then setup button until the value inside is used."
+        "Example //button[span[text()='value inside span']] or whatever is inside the button"
     )
     args_schema: Type[BaseModel] = ClickButtonInput
 
@@ -42,7 +46,8 @@ class ClickButtonTool(BaseTool):
         try:
             element = driver.find_element(locator, value)
             element.click()
-            
+            har_data_list.append(driver.har)
+            print(har_data_list)
             return f"Successfully clicked element by {by}='{value}' Current URL: {driver.current_url}."
         
         except Exception as e:
