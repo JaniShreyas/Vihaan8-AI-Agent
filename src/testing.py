@@ -40,6 +40,12 @@ def count_buttons(url, headless=True):
         print(f"- {len(button_elements)} <button> elements")
         print(f"- {len(input_buttons)} <input> button elements")
         
+        print(driver.current_url)
+        element = driver.find_element(By.CLASS_NAME, "alternative-style")
+        element.click()
+
+        print(driver.current_url)
+        
         return total_buttons
     
     except Exception as e:
