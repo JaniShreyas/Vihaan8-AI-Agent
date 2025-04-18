@@ -21,8 +21,9 @@ class ClickButtonTool(BaseTool):
     description: str = (
         "Clicks a button on the currently open page in a persistent Selenium session. "
         "Initialize the session with init_driver() elsewhere in your agent startup."
-        "Wherever possible, try to use by = XPATH and then setup button until the value inside is used."
-        "Example //button[span[text()='value inside span']] or whatever is inside the button"
+        "Give priority to using XPATH, but if that doesn't work, try all other approaches until one works or you have used all"
+        "Make sure your first action is to click the Signup button"
+        "Example by = XPATH, //button[span[text()='Signup']] to go to the signup page"
     )
     args_schema: Type[BaseModel] = ClickButtonInput
 

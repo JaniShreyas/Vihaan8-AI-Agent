@@ -22,12 +22,10 @@ web_crawling_task:
     Make sure you choose the correct button to click using the click_button tool
   expected_output: >
     First note each button in the page
-    ABSOLUTELY make sure you have noticed all the buttons available. Not even one should remain.
-    make ABSOLUTELY ABSOLUTELY sure you have clicked all buttons. Take as many iterations as you
-    Make sure to try all buttons available
-    An explanation about what you understood in the page and why you chose to click that particular button
-    Remember which buttons you saw and make sure to click and record what was the output of each
+    ABSOLUTELY make sure you have noticed all the actions available. Not even one should remain.
+    make ABSOLUTELY ABSOLUTELY sure you have performed all possible actions. Take as many iterations as you
     If you reach a dead end, go back to the base URL {url} and try something else
     If you are confused about an output, note it down, and then try another button.
     Explain each choice in detail with a timeline/step of what you did and why
+    Hint: Click the Signup button, fill the form with sensible details, got to base url {url}, login with the exact fields you signed up with
   agent: web_crawler_agent

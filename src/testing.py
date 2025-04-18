@@ -41,10 +41,14 @@ def count_buttons(url, headless=True):
         print(f"- {len(input_buttons)} <input> button elements")
         
         print(driver.current_url)
-        element = driver.find_element(By.XPATH, "//button[text()='Forgot Password?']")
+        element = driver.find_element(By.XPATH, "//button[span[text()='Signup']]")
         element.click()
 
         print(driver.current_url)
+
+        element = driver.find_element(By.XPATH, "//*[@id='basic_name']")
+        element.clear()
+        element.send_keys("John Doe")
         
         return total_buttons
     
@@ -58,4 +62,4 @@ def count_buttons(url, headless=True):
 if __name__ == "__main__":
     # Example usage
     target_url = "localhost:8888"
-    count_buttons(target_url)
+    count_buttons(target_url, headless=False)

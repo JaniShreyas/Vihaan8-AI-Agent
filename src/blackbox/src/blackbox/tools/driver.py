@@ -33,6 +33,6 @@ def get_driver() -> webdriver.Firefox:
     Retrieve the initialized driver. Raises if not yet initialized.
     """
     if _driver is None:
-        init_driver()
+        init_driver(headless=False)
         
     return _driver
